@@ -45,3 +45,52 @@ ML
 K-Nearest Neighbors (KNN)
 
 StandardScaler for feature normalization
+
+📁 Project Structure
+wavematch/
+├── backend/        # API + ML logic
+├── frontend/       # User interface
+├── data/           # Dataset
+├── models/         # Saved KNN model & scaler
+├── notebooks/      # Experiments & EDA
+├── scripts/        # Training & preprocessing scripts
+└── README.md
+
+▶️ Getting Started
+1. Clone the repository
+git clone https://github.com/yourusername/wavematch.git
+cd wavematch
+
+2. Install dependencies
+pip install -r requirements.txt
+
+3. Run the backend
+python app.py
+
+📌 Use Cases
+
+Discover songs with a similar vibe
+
+Mood-based playlist generation
+
+Understanding similarity-based recommendation systems
+
+📈 Future Improvements
+
+User profiles and history-based recommendations
+
+Hybrid model (KNN + clustering)
+
+Playlist saving
+
+Deployment (Render / Vercel)
+
+📄 License
+
+This project is licensed under the MIT License.
+
+👤 Author
+
+Priyanshu
+Student | Computer Science
+Built as a learning-focused machine learning project.

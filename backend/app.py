@@ -1,10 +1,7 @@
-import pandas as pd
-from preprocess import prepare_features
+from fastapi import FastAPI
 
-def load_data(path);
-  return pd.read_csv(path)
+app = FastAPI(title="WaveMatch API"0
 
-if __name__ == "__main__":
-    df = load_data("data/songs.csv")
-    X_scaled, scaler = prepare_features(df)
-    print(X_scaled.shape)
+@app.get("/")
+def health_check():
+  return {"status": "OK"}

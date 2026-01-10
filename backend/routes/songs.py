@@ -4,7 +4,7 @@ from utils.loader import load_raw_songs
 router = APIRouter()
 
 @router.get("/")
-def get_songs():
+def get_songs(limit: int = 20):
     df = load_raw_songs()
     songs = df[["track_name", "artist_name"]].head(limit)
     return songs.to_dict(orient="records")

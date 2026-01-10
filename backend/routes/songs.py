@@ -1,5 +1,5 @@
 from fastapi import APIRouter
-from utils.loader import load_raw_songs
+from backend.utils.loader import load_raw_songs
 
 router = APIRouter()
 

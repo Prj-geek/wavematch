@@ -8,7 +8,7 @@ PROCESSED_DATA_DIR = DATA_DIR / "processed"
 
 MODEL_DIR = BASE_DIR / "models"
 
-RAW_DATA_PATH = RAW_DATA_DIR / "raw_data.csv"
+RAW_DATA_PATH = RAW_DATA_DIR / "spotify.csv"
 FEATURES_PATH = PROCESSED_DATA_DIR / "features.csv"
 
 KNN_MODEL_PATH = MODEL_DIR / "knn_model.pkl"

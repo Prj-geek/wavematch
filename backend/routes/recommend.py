@@ -1,16 +1,24 @@
 from fastapi import APIRouter, HTTPException
-from backend.services.recommender import recommend_by_index
+from backend.services.recommender import (
+    recommend_by_index,
+    find_song_index
+)
 from backend.utils.loader import load_raw_songs
 
 router = APIRouter()
 
 @router.get("/")
-def recommend(song_index: int, limit: int = 10):
+def recommend(
+    track_name: str,
+    artist_name: str | None = None,
+    limit: int = 10
+):
+    song_index = find_song_index(track_name, artist_name)
+
+    if song_index is None:
+        raise HTTPException(status_code=404, detail="Song not found")
+
     df = load_raw_songs()
-
-    if song_index < 0 or song_index >= len(df):
-        raise HTTPException(status_code=400, detail="Invalid song index")
-
     recommended_indices = recommend_by_index(song_index, limit)
 
     recommendations = df.iloc[recommended_indices][
@@ -18,4 +26,3 @@ def recommend(song_index: int, limit: int = 10):
     ]
 
     return recommendations.to_dict(orient="records")
-

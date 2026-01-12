@@ -22,15 +22,19 @@ def recommend_by_index(song_index: int, n_recommendations: int = 10):
 def find_song_index(track_name: str, artist_name: str | None = None):
     df = load_raw_songs()
 
+    name_mask = df["track_name"].str.lower().str.contains(
+        track_name.lower(),
+        na=False
+    )
+
     if artist_name:
-        matches = df[
-            (df["track_name"].str.lower() == track_name.lower()) &
-            (df["artist_name"].str.lower() == artist_name.lower())
-        ]
+        artist_mask = df["artist_name"].str.lower().str.contains(
+            artist_name.lower(),
+            na=False
+        )
+        matches = df[name_mask & artist_mask]
     else:
-        matches = df[
-            df["track_name"].str.lower() == track_name.lower()
-        ]
+        matches = df[name_mask]
 
     if matches.empty:
         return None

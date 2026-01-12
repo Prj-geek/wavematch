@@ -1,7 +1,8 @@
 import numpy as np
 from backend.utils.loader import (
     load_features,
-    load_knn
+    load_knn,
+    load_raw_songs
 )
 
 def recommend_by_index(song_index: int, n_recommendations: int = 10):
@@ -17,3 +18,21 @@ def recommend_by_index(song_index: int, n_recommendations: int = 10):
 
     recommended_indices = indices[0][1:]
     return recommended_indices.tolist()
+
+def find_song_index(track_name: str, artist_name: str | None = None):
+    df = load_raw_songs()
+
+    if artist_name:
+        matches = df[
+            (df["track_name"].str.lower() == track_name.lower()) &
+            (df["artist_name"].str.lower() == artist_name.lower())
+        ]
+    else:
+        matches = df[
+            df["track_name"].str.lower() == track_name.lower()
+        ]
+
+    if matches.empty:
+        return None
+
+    return matches.index[0]

@@ -16,8 +16,15 @@ def recommend_by_index(song_index: int, n_recommendations: int = 10):
         n_neighbors=n_recommendations + 1
     )
 
-    recommended_indices = indices[0][1:]
-    return recommended_indices.tolist()
+    results = []
+    for dist, idx in zip(distances[0][1:], indices[0][1:]):
+        results.append({
+            "index": int(idx),
+            "similarity": float(1 - dist)
+        })
+
+    return results
+
 
 def find_song_index(track_name: str, artist_name: str | None = None):
     df = load_raw_songs()

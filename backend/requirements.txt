@@ -4,3 +4,6 @@ pandas
 numpy
 scikit-learn
 joblib
+sqlalchemy
+passlib[bcrypt]
+python-multipart

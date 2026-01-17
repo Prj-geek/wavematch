@@ -1,5 +1,6 @@
-import Login from "./components/Login";
+import RecommendButton from "./components/RecommendButton";
 import Protected from "./components/Protected";
+import Login from "./components/Login";
 import { AuthProvider } from "./context/AuthContext";
 
 function App() {
@@ -7,7 +8,7 @@ function App() {
     <AuthProvider>
       <Login />
       <Protected>
-        <p>You are logged in</p>
+        <RecommendButton />
       </Protected>
     </AuthProvider>
   );

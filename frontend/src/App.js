@@ -1,6 +1,7 @@
-import RecommendButton from "./components/RecommendButton";
-import Protected from "./components/Protected";
 import Login from "./components/Login";
+import Protected from "./components/Protected";
+import RecommendButton from "./components/RecommendButton";
+import Playlists from "./components/Playlists";
 import { AuthProvider } from "./context/AuthContext";
 
 function App() {
@@ -9,6 +10,7 @@ function App() {
       <Login />
       <Protected>
         <RecommendButton />
+        <Playlists />
       </Protected>
     </AuthProvider>
   );

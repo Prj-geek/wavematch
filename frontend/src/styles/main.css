@@ -1,1 +1,43 @@
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #0f172a;
+  color: #e5e7eb;
+}
 
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+h1 {
+  margin-bottom: 1.5rem;
+}
+
+button {
+  background: #6366f1;
+  color: white;
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #4f46e5;
+}
+
+input {
+  padding: 0.5rem;
+  margin-right: 0.5rem;
+  border-radius: 4px;
+  border: none;
+}
+
+pre {
+  background: #020617;
+  padding: 1rem;
+  border-radius: 6px;
+  overflow-x: auto;
+}

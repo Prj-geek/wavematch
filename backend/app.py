@@ -4,6 +4,8 @@ from backend.routes.auth import router as auth_router
 from backend.routes.recommend import router as recommend_router
 from backend.routes.search import router as search_router
 from backend.routes.playlist import router as playlists_router
+from backend.routes.recommend_multi import router as recommend_multi_router
+
 
 app = FastAPI(title="WaveMatch API")
 
@@ -12,6 +14,11 @@ app.include_router(search_router, prefix="/search", tags=["search"])
 app.include_router(recommend_router, prefix="/recommend", tags=["recommend"])
 app.include_router(auth_router, prefix="/auth", tags=["auth"])
 app.include_router(playlists_router, prefix="/playlists", tags=["playlists"])
+app.include_router(
+    recommend_multi_router,
+    prefix="/recommend/multi",
+    tags=["recommend"]
+)
 
 @app.get("/")
 def health_check():

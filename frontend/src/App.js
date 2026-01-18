@@ -1,17 +1,11 @@
-import Login from "./components/Login";
-import Protected from "./components/Protected";
-import RecommendButton from "./components/RecommendButton";
-import Playlists from "./components/Playlists";
 import { AuthProvider } from "./context/AuthContext";
+import Home from "./pages/Home";
+import "./styles/main.css";
 
 function App() {
   return (
     <AuthProvider>
-      <Login />
-      <Protected>
-        <RecommendButton />
-        <Playlists />
-      </Protected>
+      <Home />
     </AuthProvider>
   );
 }

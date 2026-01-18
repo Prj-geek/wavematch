@@ -47,3 +47,28 @@ def find_song_index(track_name: str, artist_name: str | None = None):
         return None
 
     return matches.index[0]
+from backend.services.feature_utils import average_vectors
+from backend.utils.loader import load_knn
+
+def recommend_by_indices(indices: list[int], n_recommendations: int = 10):
+    knn = load_knn()
+
+    seed_vector = average_vectors(indices)
+
+    distances, nn_indices = knn.kneighbors(
+        seed_vector,
+        n_neighbors=n_recommendations + len(indices)
+    )
+
+    # remove seeds from results
+    recs = []
+    for dist, idx in zip(distances[0], nn_indices[0]):
+        if idx not in indices:
+            recs.append({
+                "index": int(idx),
+                "similarity": float(1 - dist)
+            })
+        if len(recs) >= n_recommendations:
+            break
+
+    return recs

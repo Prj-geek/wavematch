@@ -61,4 +61,4 @@ recommendMulti: (trackNames, limit = 10) =>
     body: JSON.stringify({
       track_names: trackNames,
     }),
-  }),
+  })

@@ -55,3 +55,10 @@ export const api = {
 
   playlists: () => request(`/playlists`),
 };
+recommendMulti: (trackNames, limit = 10) =>
+  request(`/recommend/multi?limit=${limit}`, {
+    method: "POST",
+    body: JSON.stringify({
+      track_names: trackNames,
+    }),
+  }),

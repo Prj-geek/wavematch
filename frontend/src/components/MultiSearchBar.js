@@ -55,3 +55,12 @@ export default function MultiSearchBar({ onResults }) {
     </div>
   );
 }
+<div className="chips">
+  {selected.map((s) => (
+    <span className="chip" key={s}>
+      {s}
+      <button onClick={() => removeSong(s)}>×</button>
+    </span>
+  ))}
+</div>
+{error && <p className="error">{error}</p>}

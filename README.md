@@ -25,6 +25,16 @@ KNN finds the most similar songs using distance metrics
 
 The closest matches are returned as recommendations
 
+## How recommendations work
+
+WaveMatch uses a content-based filtering approach.
+Spotify audio features are scaled and compared using
+cosine similarity via KNN.
+
+Multiple seed songs are combined by averaging
+their feature vectors, enabling playlist-style recommendations.
+
+
 🛠 Tech Stack
 Backend
 

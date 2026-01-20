@@ -8,6 +8,9 @@ from backend.utils.deps import get_current_user
 from sqlalchemy.orm import Session
 from backend.db import SessionLocal
 from backend.services.playlist_db import save_user_playlist
+import logging
+
+logging.basicConfig(level=logging.INFO)
 
 
 router = APIRouter()
@@ -20,6 +23,7 @@ def recommend(
     playlist_name: str | None = None,
     current_user: str = Depends(get_current_user)
 ):
+    logging.info(f"Finding song index for {track_name} by {artist_name}")
     song_index = find_song_index(track_name, artist_name)
     if song_index is None:
         raise HTTPException(status_code=404, detail="Song not found")

@@ -1,3 +1,8 @@
+# Audio features chosen based on Spotify audio analysis.
+# These features capture rhythm (tempo, danceability),
+# energy dynamics (energy, loudness),
+# mood (valence),
+# and texture (acousticness, instrumentalness, liveness).
 import pandas as pd
 from sklearn.preprocessing import StandardScaler
 import joblib

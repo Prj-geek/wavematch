@@ -34,6 +34,14 @@ cosine similarity via KNN.
 Multiple seed songs are combined by averaging
 their feature vectors, enabling playlist-style recommendations.
 
+## Architecture
+
+Frontend (React)
+→ Auth Context (JWT)
+→ FastAPI Backend
+→ KNN Recommender
+→ SQLite Database
+
 
 🛠 Tech Stack
 Backend

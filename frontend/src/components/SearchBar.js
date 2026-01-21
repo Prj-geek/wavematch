@@ -13,7 +13,7 @@ export default function SearchBar({ onResults }) {
       onResults(data);
       setError(null);
     } catch (err) {
-      setError(err.detail || "Song not found");
+      setError(err.detail || "Something went wrong")
     }
   };
 

@@ -6,6 +6,7 @@
 import pandas as pd
 from sklearn.preprocessing import StandardScaler
 import joblib
+import backend..constants.features as features_constants
 
 from backend.config import (
     RAW_DATA_PATH,

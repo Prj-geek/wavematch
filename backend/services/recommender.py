@@ -4,6 +4,7 @@ from backend.utils.loader import (
     load_knn,
     load_raw_songs
 )
+from typing import List, Dict
 
 def recommend_by_index(song_index: int, n_recommendations: int = 10):
     features_df = load_features()

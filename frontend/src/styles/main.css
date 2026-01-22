@@ -142,3 +142,12 @@ button.secondary:hover {
   background: var(--border);
   margin: 2rem 0;
 }
+
+select {
+  background: var(--card);
+  border: 1px solid var(--border);
+  color: white;
+  padding: 0.5rem;
+  border-radius: 6px;
+  margin-right: 0.5rem;
+}

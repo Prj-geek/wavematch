@@ -2,12 +2,15 @@ import { useState } from "react";
 import { api } from "../api/wavematchApi";
 
 export default function SearchBar({ onResults }) {
-  const [query, setQuery] = useState("");
+  const [query, setQuery] = useState(
+    localStorage.getItem("last_query") || ""
+  );
   const [limit, setLimit] = useState(10);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
   const handleSearch = async () => {
+    localStorage.setItem("last_query", query);
     if (!query.trim()) return;
 
     setLoading(true);

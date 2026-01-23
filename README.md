@@ -1,114 +1,34 @@
-🎧 Wavematch
+# WaveMatch 🎧
 
-Wavematch is a content-based music recommendation system that matches songs based on their audio features using the K-Nearest Neighbors (KNN) algorithm.
-Instead of relying on popularity or user history, Wavematch focuses on vibe similarity—energy, mood, tempo, and other musical attributes.
+WaveMatch is a full-stack music recommendation system that generates
+personalized song and playlist recommendations using audio feature
+similarity.
 
-🚀 Features
+## Features
 
-Content-based music recommendations
+- 🎵 Single-song recommendations
+- 🎶 Multi-song (playlist seed) recommendations
+- 📊 Cosine similarity with KNN
+- 🔐 User authentication with JWT
+- 💾 Save and view personal playlists
+- ⚡ FastAPI backend + React frontend
 
-KNN similarity search on audio features
+## How It Works
 
-Mood / vibe-based matching
+1. Spotify audio features are scaled using StandardScaler
+2. Songs are represented as numerical vectors
+3. Similarity is computed using cosine distance
+4. KNN retrieves the closest matches
+5. Multiple seed songs are combined by averaging vectors
 
-Simple and interpretable recommendation logic
+## Tech Stack
 
-Modular backend + frontend architecture
+- Backend: FastAPI, scikit-learn, SQLite
+- Frontend: React, Context API
+- Auth: JWT
+- ML: Content-based filtering (KNN)
 
-🧠 How It Works
+## Project Status
 
-Songs are represented as numerical feature vectors (energy, valence, tempo, etc.)
-
-All features are normalized for fair distance comparison
-
-KNN finds the most similar songs using distance metrics
-
-The closest matches are returned as recommendations
-
-## How recommendations work
-
-WaveMatch uses a content-based filtering approach.
-Spotify audio features are scaled and compared using
-cosine similarity via KNN.
-
-Multiple seed songs are combined by averaging
-their feature vectors, enabling playlist-style recommendations.
-
-## Architecture
-
-Frontend (React)
-→ Auth Context (JWT)
-→ FastAPI Backend
-→ KNN Recommender
-→ SQLite Database
-
-
-🛠 Tech Stack
-Backend
-
-Python
-
-Flask / FastAPI
-
-scikit-learn
-
-pandas, numpy
-
-Frontend
-
-HTML, CSS, JavaScript (or React)
-
-ML
-
-K-Nearest Neighbors (KNN)
-
-StandardScaler for feature normalization
-
-📁 Project Structure
-wavematch/
-├── backend/        # API + ML logic
-├── frontend/       # User interface
-├── data/           # Dataset
-├── models/         # Saved KNN model & scaler
-├── notebooks/      # Experiments & EDA
-├── scripts/        # Training & preprocessing scripts
-└── README.md
-
-▶️ Getting Started
-1. Clone the repository
-git clone https://github.com/yourusername/wavematch.git
-cd wavematch
-
-2. Install dependencies
-pip install -r requirements.txt
-
-3. Run the backend
-python app.py
-
-📌 Use Cases
-
-Discover songs with a similar vibe
-
-Mood-based playlist generation
-
-Understanding similarity-based recommendation systems
-
-📈 Future Improvements
-
-User profiles and history-based recommendations
-
-Hybrid model (KNN + clustering)
-
-Playlist saving
-
-Deployment (Render / Vercel)
-
-📄 License
-
-This project is licensed under the MIT License.
-
-👤 Author
-
-Priyanshu
-Student | Computer Science
-Built as a learning-focused machine learning project.
+This project is feature-complete as an MVP and suitable for deployment
+and portfolio demonstration.

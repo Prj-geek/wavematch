@@ -5,7 +5,12 @@ export default function RecommendationList({ recommendations }) {
   const [order, setOrder] = useState("desc");
 
   if (!recommendations || !recommendations.length) {
-    return <p className="muted">No recommendations yet</p>;
+    return (
+  <p className="muted">
+    Search for a song or select multiple songs to get recommendations.
+  </p>
+);
+
   }
 
   const sorted = [...recommendations].sort((a, b) => {

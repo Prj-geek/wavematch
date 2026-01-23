@@ -9,8 +9,7 @@ export default function RecommendationList({ recommendations }) {
   <p className="muted">
     Search for a song or select multiple songs to get recommendations.
   </p>
-);
-
+    );
   }
 
   const sorted = [...recommendations].sort((a, b) => {
@@ -22,6 +21,9 @@ export default function RecommendationList({ recommendations }) {
 
   return (
     <div className="recommendations">
+      <p className="muted">
+      Showing {sorted.length} recommendations
+      </p>
       <div style={{ marginBottom: "0.5rem" }}>
         <label style={{ marginRight: "0.5rem" }}>Sort by similarity:</label>
         <select

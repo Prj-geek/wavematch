@@ -1,38 +1,36 @@
 import { useState } from "react";
 import { api } from "../api/wavematchApi";
-import { useAuth } from "../context/AuthContext";
 
 export default function Login() {
-  const { login } = useAuth();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const handleLogin = async () => {
     try {
-      const res = await api.login(username, password);
-      login(res.access_token);
-    } catch (err) {
-      setError(err.detail || "Login failed");
+      const data = await api.login(username, password);
+      localStorage.setItem("token", data.access_token);
+      window.location.reload(); // simplest way
+    } catch {
+      setError("Login failed");
     }
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <div>
       <input
-        placeholder="Username"
+        placeholder="username"
         value={username}
         onChange={(e) => setUsername(e.target.value)}
       />
       <input
         type="password"
-        placeholder="Password"
+        placeholder="password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
-      <button type="submit">Login</button>
+      <button onClick={handleLogin}>Login</button>
       {error && <p>{error}</p>}
-    </form>
+    </div>
   );
 }

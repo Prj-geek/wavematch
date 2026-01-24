@@ -1,1 +1,46 @@
+# ======================
+# Node / Frontend
+# ======================
+node_modules/
+frontend/node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
+# Build outputs
+frontend/build/
+frontend/dist/
+
+# ======================
+# Python / Backend
+# ======================
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+.env
+.venv
+venv/
+ENV/
+
+# ======================
+# ML / Data artifacts
+# ======================
+backend/models/*.pkl
+backend/data/processed/
+backend/data/playlists/
+backend/data/*.db
+
+# ======================
+# OS / Editor
+# ======================
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# ======================
+# Logs
+# ======================
+*.log

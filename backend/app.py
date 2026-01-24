@@ -5,6 +5,18 @@ from backend.routes.recommend import router as recommend_router
 from backend.routes.search import router as search_router
 from backend.routes.playlist import router as playlists_router
 from backend.routes.recommend_multi import router as recommend_multi_router
+from fastapi.middleware.cors import CORSMiddleware
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[
+        "http://localhost:3000",
+        "http://127.0.0.1:3000",
+    ],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 
 app = FastAPI(title="WaveMatch API")

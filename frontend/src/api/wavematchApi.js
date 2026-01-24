@@ -35,15 +35,43 @@ async function request(path, options = {}) {
 }
 
 export const api = {
-  login: (username, password) =>
-    request(`/auth/login?username=${username}&password=${password}`, {
-      method: "POST",
-    }),
+  login: async (username, password) => {
+  const body = new URLSearchParams();
+  body.append("username", username);
+  body.append("password", password);
 
-  register: (username, password) =>
-    request(`/auth/register?username=${username}&password=${password}`, {
-      method: "POST",
-    }),
+  const res = await fetch(`${BASE_URL}/auth/login`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+    body: body.toString(),
+  });
+
+  if (!res.ok) {
+    throw new Error("Login failed");
+  }
+
+  return res.json();
+},
+
+
+  register: async (username, password) => {
+  const res = await fetch(`${BASE_URL}/auth/register`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ username, password }),
+  });
+
+  if (!res.ok) {
+    throw new Error("Registration failed");
+  }
+
+  return res.json();
+},
+
 
   recommend: (trackName, options = {}) => {
     const params = new URLSearchParams({
